@@ -2,8 +2,8 @@ import { useState, useRef, useEffect } from 'react'
 import './App.css';
 
 function App() {
-  const [rows, setRows] = useState(new Set(['foo', 'bar', 'faa', 'baa', 'bor']))
-  const [used, setUsed] = useState({ foo: 1 })
+  const [rows, setRows] = useState(new Set())
+  const [used, setUsed] = useState({})
   const addRow = useRef(null)
   const form = useRef(null)
 
@@ -12,7 +12,7 @@ function App() {
   })
 
   const handleAddRow = () => {
-    const value = addRow.current.value
+    const value = addRow.current.value.toUpperCase()
     if (!value) {
       return false
     }
@@ -140,6 +140,9 @@ function App() {
                 <input
                   type='text'
                   ref={addRow}
+                  onInput={(e) => {
+                    e.target.value = e.target.value.toUpperCase()
+                  }}
                   />
               </form>
             </th>
@@ -152,13 +155,12 @@ function App() {
                   return false
                 }}
               >
-                add
+                +
               </button>
             </th>
           </tr>
         </tfoot>
       </table>
-      <pre>{JSON.stringify(used, 2)}</pre>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 body, input, button {
-  font-size: 16px;
+  font-size: 20px;
 }
 
 #codes {
@@ -18,6 +18,8 @@ body, input, button {
 #codes table th,
 #codes table td {
   text-align: left;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
 }
 
 #codes table tbody > tr:nth-child(even) td {
@@ -49,6 +51,8 @@ body, input, button {
 
 #codes table .value {
   width: 2rem;
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
 }
 
 #codes table thead th {
