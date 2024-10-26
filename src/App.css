@@ -1,0 +1,69 @@
+body, input, button {
+  font-size: 16px;
+}
+
+#codes {
+  width: 100%;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#codes table {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+#codes table th,
+#codes table td {
+  text-align: left;
+}
+
+#codes table tbody > tr:nth-child(even) td {
+  background-color: #f1f1f1;
+}
+
+#codes table .btn {
+  text-align: right;
+  width: 2rem;
+}
+
+#codes table .code .excluded {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+#codes table td.value button {
+  background-color: #f1f1f1;
+  color: #222;
+  border: solid 1px #222;
+  border-radius: 0.5rem;
+  padding: 0.2rem 0.5rem;
+}
+
+#codes table tr.used td.value button.selected {
+  background-color: #222;
+  color: white;
+}
+
+#codes table .value {
+  width: 2rem;
+}
+
+#codes table thead th {
+  border-bottom: solid 1px black;
+}
+
+#codes table tfoot th {
+  border-top: solid 1px black;
+}
+
+#codes table tfoot th input {
+  width: 100%;
+}
+
+#codes table tfoot th input:focus,
+#codes table tfoot th input:active {
+  outline-color: transparent;
+}
