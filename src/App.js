@@ -41,16 +41,14 @@ function App() {
   }
 
   const getLikeness = (v1, v2) => {
-    const c1 = v1.split('')
-    const c2 = v2.split('')
-
-    c1.forEach((c) => {
-      if (c2.includes(c)) {
-        c2.splice(c2.indexOf(c), 1)
+    let likeness = 0
+    for (let i = 0; i < v1.length; i++) {
+      if (v1[i] === v2[i]) {
+        likeness++
       }
-    })
+    }
 
-    return v1.length - c2.length
+    return likeness
   }
 
   const isExcluded = (value) => {
@@ -186,6 +184,7 @@ function App() {
             e.preventDefault()
             e.stopPropagation()
             setRows(() => new Set())
+            setUsed(() => { return {} })
           }}
         >
           Clear
