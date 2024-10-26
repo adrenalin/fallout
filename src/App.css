@@ -63,11 +63,16 @@ h1 {
 
 #codes table tfoot th input {
   width: 100%;
+  transition-property: all;
+  transition-duration: 500ms;
 }
 
+#codes table tfoot th input:hover,
 #codes table tfoot th input:focus,
 #codes table tfoot th input:active {
-  outline-color: transparent;
+  outline: solid 1px #61de26;
+  border-color: #61de26;
+  background-color: #61de2633;
 }
 
 #codes button.remove {

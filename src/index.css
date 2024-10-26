@@ -30,6 +30,7 @@ body {
 
 .container {
   background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 20px #61de2633, 0 0 10px #61de2633, 0 0 5px #61de2633 inset;
   margin: 1rem;
   padding: 1rem;
   border-radius: 1rem;
