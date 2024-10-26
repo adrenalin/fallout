@@ -55,6 +55,10 @@ body, input, button {
   padding-right: 0.4rem;
 }
 
+#codes table .value button {
+  width: 3rem;
+}
+
 #codes table thead th {
   border-bottom: solid 1px black;
 }
