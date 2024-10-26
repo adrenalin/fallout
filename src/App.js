@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import './App.css';
 
 function App() {
-  const [rows, setRows] = useState(new Set(['foo', 'asf', 'asd', 'fas', 'wer', 'fax', 'vzx', 'vsa', 'btd', 'bxe', 'bgt']))
+  const [rows, setRows] = useState(new Set())
   const [used, setUsed] = useState({})
   const addRow = useRef(null)
   const form = useRef(null)
