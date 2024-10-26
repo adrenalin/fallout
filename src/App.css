@@ -1,12 +1,15 @@
 body, input, button {
-  font-size: 20px;
+  font-size: 18px;
 }
 
-#codes {
-  width: 100%;
-  max-width: 640px;
-  margin-left: auto;
-  margin-right: auto;
+h1 {
+  font-size: 140%;
+}
+
+#codes button {
+  border-radius: 0.5rem;
+  padding: 0.2rem 0.5rem;
+  border: solid 1px #222;
 }
 
 #codes table {
@@ -31,6 +34,10 @@ body, input, button {
   width: 2rem;
 }
 
+#codes table .code {
+  width: 100%;
+}
+
 #codes table .code .excluded {
   text-decoration: line-through;
   opacity: 0.5;
@@ -39,24 +46,11 @@ body, input, button {
 #codes table td.value button {
   background-color: #f1f1f1;
   color: #222;
-  border: solid 1px #222;
-  border-radius: 0.5rem;
-  padding: 0.2rem 0.5rem;
 }
 
 #codes table tr.used td.value button.selected {
   background-color: #222;
   color: white;
-}
-
-#codes table .value {
-  width: 2rem;
-  padding-left: 0.4rem;
-  padding-right: 0.4rem;
-}
-
-#codes table .value button {
-  width: 2rem;
 }
 
 #codes table thead th {
@@ -74,4 +68,9 @@ body, input, button {
 #codes table tfoot th input:focus,
 #codes table tfoot th input:active {
   outline-color: transparent;
+}
+
+#codes button.remove {
+  color: white;
+  background-color: #f32;
 }

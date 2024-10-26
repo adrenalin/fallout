@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import './App.css';
 
 function App() {
-  const [rows, setRows] = useState(new Set())
+  const [rows, setRows] = useState(new Set(['foo', 'asf', 'asd', 'fas', 'wer', 'fax', 'vzx', 'vsa', 'btd', 'bxe', 'bgt']))
   const [used, setUsed] = useState({})
   const addRow = useRef(null)
   const form = useRef(null)
@@ -12,14 +12,22 @@ function App() {
   })
 
   const handleAddRow = () => {
-    const value = addRow.current.value.toUpperCase()
+    const value = addRow.current.value.toUpperCase().replace(/[^A-Z ]+/, '')
     if (!value) {
       return false
     }
 
     setRows((prevRows) => {
       const values = new Set(prevRows)
-      values.add(value)
+
+      value.split(/[\n\r\s]+/).forEach((v) => {
+        if (!v) {
+          return
+        }
+
+        values.add(v)
+      })
+
       addRow.current.value = ''
       return values
     })
@@ -58,15 +66,21 @@ function App() {
   }
 
   return (
-    <div id="codes">
+    <div id="codes" className='container'>
+      <p>
+        Start by entering the codes on the terminal. Either enter each one
+        manually or separate by space.
+      </p>
       <table>
-        <thead>
-          <tr>
-            <th>Code</th>
-            <th className='value' colSpan={headers.length}>Likeness</th>
-            <th className='btn'></th>
-          </tr>
-        </thead>
+        {!!rows.size && (
+          <thead>
+            <tr>
+              <th>Code</th>
+              <th className='value' colSpan={headers.length}>Likeness</th>
+              <th className='btn'></th>
+            </tr>
+          </thead>
+        )}
         <tbody>
           {Array.from(rows).map((row, i) => {
             return (
@@ -107,6 +121,7 @@ function App() {
                 })}
                 <td className='btn'>
                   <button
+                    className='remove'
                     onClick={(e) => {
                       e.preventDefault()
                       e.stopPropagation()
@@ -140,8 +155,12 @@ function App() {
                 <input
                   type='text'
                   ref={addRow}
+                  pattern='^[A-Z][A-Z ]+$'
                   onInput={(e) => {
-                    e.target.value = e.target.value.toUpperCase()
+                    e.target.value = e.target.value
+                      .toUpperCase()
+                      .replace(/[^A-Z ]/g, '')
+                      .replace(/^ /, '')
                   }}
                   />
               </form>
@@ -161,6 +180,17 @@ function App() {
           </tr>
         </tfoot>
       </table>
+      {!!rows.size && (
+        <button
+          onClick={(e) => {
+            e.preventDefault()
+            e.stopPropagation()
+            setRows(() => new Set())
+          }}
+        >
+          Clear
+        </button>
+      )}
     </div>
   );
 }
